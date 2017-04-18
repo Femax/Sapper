@@ -26,11 +26,25 @@ public class GameView extends SurfaceView {
         mSeparatorPaint = new Paint();
         int separatorColor = context.getResources().getColor(android.R.color.black);
         mSeparatorPaint.setColor(separatorColor);
-        mSeparatorPaint.set
+        for (int i = 0; i < cellCount; i++) {
+            for (int j = 0; j < cellCount; j++) {
+                if (j == 0) {
+                    mCells.add(new LinkedList<Cell>());
+                }
+                LinkedList<Cell> stroke = mCells.get(i);
+                stroke.add(new Cell(i, j, Math.random() > 0.5f));
+
+            }
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        float cellSizeHorizontal = getWidth() / mCellCount / 2;
+        float cellSizeVertical = getHeight() / mCellCount / 2;
+
+
+
     }
 }
